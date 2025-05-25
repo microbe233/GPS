@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Coordinate Transformation Tool</title>
+    <link rel="stylesheet" href="./public/style/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🗺️ Advanced Coordinate Transformation Tool</h1>
+        <p>
+          Convert pixel coordinates to GPS coordinates with customizable
+          parameters
+        </p>
+      </div>
+
+      <div class="main-content">
+        <div class="image-section">
+          <h3>📷 Interactive Aerial Image</h3>
+          <div class="image-container">
+            <div class="aerial-image" id="aerialImage">
+              <!-- Reference Points will be added dynamically -->
+            </div>
+          </div>
+          <p style="text-align: center; color: #666; margin-top: 10px">
+            <em>Click anywhere on the image to calculate GPS coordinates</em>
+          </p>
+        </div>
+
+        <div class="controls-section">
+          <div class="control-group">
+            <h3>
+              <span class="status-indicator"></span>
+              Image Dimensions
+            </h3>
+            <div class="dimensions-input">
+              <div class="input-group">
+                <label for="imageWidth">Width (px)</label>
+                <input
+                  type="number"
+                  id="imageWidth"
+                  value="363"
+                  min="100"
+                  max="2000"
+                />
+              </div>
+              <div class="input-group">
+                <label for="imageHeight">Height (px)</label>
+                <input
+                  type="number"
+                  id="imageHeight"
+                  value="673"
+                  min="100"
+                  max="2000"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <h3>📍 Corner Coordinates</h3>
+
+            <h4 style="color: #e74c3c; margin: 15px 0 10px 0">
+              Top-Left Corner
+            </h4>
+            <div class="input-row">
+              <div class="input-group">
+                <label>Latitude</label>
+                <input
+                  type="number"
+                  id="topLeftLat"
+                  value="40.7589"
+                  step="0.000001"
+                />
+              </div>
+              <div class="input-group">
+                <label>Longitude</label>
+                <input
+                  type="number"
+                  id="topLeftLng"
+                  value="-73.9851"
+                  step="0.000001"
+                />
+              </div>
+            </div>
+
+            <h4 style="color: #e74c3c; margin: 15px 0 10px 0">
+              Top-Right Corner
+            </h4>
+            <div class="input-row">
+              <div class="input-group">
+                <label>Latitude</label>
+                <input
+                  type="number"
+                  id="topRightLat"
+                  value="40.7589"
+                  step="0.000001"
+                />
+              </div>
+              <div class="input-group">
+                <label>Longitude</label>
+                <input
+                  type="number"
+                  id="topRightLng"
+                  value="-73.9841"
+                  step="0.000001"
+                />
+              </div>
+            </div>
+
+            <h4 style="color: #e74c3c; margin: 15px 0 10px 0">
+              Bottom-Left Corner
+            </h4>
+            <div class="input-row">
+              <div class="input-group">
+                <label>Latitude</label>
+                <input
+                  type="number"
+                  id="bottomLeftLat"
+                  value="40.7579"
+                  step="0.000001"
+                />
+              </div>
+              <div class="input-group">
+                <label>Longitude</label>
+                <input
+                  type="number"
+                  id="bottomLeftLng"
+                  value="-73.9851"
+                  step="0.000001"
+                />
+              </div>
+            </div>
+
+            <h4 style="color: #e74c3c; margin: 15px 0 10px 0">
+              Bottom-Right Corner
+            </h4>
+            <div class="input-row">
+              <div class="input-group">
+                <label>Latitude</label>
+                <input
+                  type="number"
+                  id="bottomRightLat"
+                  value="40.7579"
+                  step="0.000001"
+                />
+              </div>
+              <div class="input-group">
+                <label>Longitude</label>
+                <input
+                  type="number"
+                  id="bottomRightLng"
+                  value="-73.9841"
+                  step="0.000001"
+                />
+              </div>
+            </div>
+
+            <button class="update-btn" onclick="updateTransformation()">
+              🔄 Update Transformation
+            </button>
+          </div>
+
+          <div class="result-panel" id="resultPanel">
+            <h4>🎯 Click on the image to calculate coordinates</h4>
+            <div class="coordinates" id="coordinates">Waiting for click...</div>
+            <div class="pixel-info" id="pixelInfo">
+              Pixel position will appear here
+            </div>
+          </div>
+
+          <div class="calculation-panel">
+            <h4>📐 Live Calculations</h4>
+            <div class="formula" id="scaleFactors">
+              Scale factors will be calculated here...
+            </div>
+            <div class="formula" id="transformationFormula">
+              Click on image to see transformation...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./public/javascript/index.js"></script>
+  </body>
+</html>
